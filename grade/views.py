@@ -95,3 +95,7 @@ def turma_list(request):
 
 def pagina_inicial(request):
     return render(request, 'grade/pag_inicial.html')
+
+def grade_list(request):
+    data3 = Disciplina_turma.objects.all()
+    return render(request, 'grade/grade.html', {'data3': data3})

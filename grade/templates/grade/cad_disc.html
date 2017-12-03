@@ -1,5 +1,5 @@
 {% extends 'grade/base.html' %}
-
+{% load widget_tweaks %}
 {% block content %}
 <div  class="container" >
 
@@ -9,10 +9,27 @@
     <form method="POST" class="post-form">
 
       {% csrf_token %}
-        {{ form.as_p }}
+        <div class="row">
+          <div class="col-md-2" >
+            {{ form.codigo.label_tag }}
+            {% render_field form.codigo class+="form-control" %}
+          </div>
+          <div class="col-md-10">
+            {{ form.nome.label_tag }}
+            {% render_field form.nome class+="form-control" %}
+          </div>
+        </div>
+      </br></br>
+        <div class="row">
+          <div class="col-md-12" >
+            {{ form.carga_horaria.label_tag }}
+            {% render_field form.carga_horaria class+="radioGrade" %}
+          </div>
+        </div>
 
-          <a class="btn btn-default" href="disciplinas" role="button">CANCELAR</a>
-          <button type="submit" class="btn btn-default" >SALVAR</button>
+
+          <a class="btn btn-default" href="disciplinas" role="button" Style="text-decoration: none; border-radius: 5px; text-align: center;  color: white; background-color: #A52A2A; padding: 5px 20px 5px 5px; font-size: 15px; font-align:center; margin-left:20px">CANCELAR</a>
+          <button type="submit" href="disciplinas" class="btn btn-default" Style="text-decoration: none; border-radius: 5px; text-align: center;  color: white; background-color: #228B22; padding: 5px 20px 5px 5px; font-size: 15px; font-align:center; margin-left:20px">SALVAR</button>
         </div>
     </form>
 

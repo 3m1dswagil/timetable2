@@ -20,7 +20,6 @@ RESTRICAO_HORA_CHOICES = (
     ('4', 'Quarta'),
     ('5', 'Quinta'),
     ('6', 'Sexta'),
-    ('7', 'Todas'),
 
 )
 
@@ -32,12 +31,12 @@ TURNO_CHOICES = (
 )
 
 CARGA_HORARIA_CHOICES = (
-    ('0', '1 aula'),
-    ('1', '2 aulas'),
-    ('2', '3 aulas'),
-    ('3', '4 aulas'),
-    ('4', '5 aulas'),
-    ('5', '6 aulas'),
+    ('1', '1 aula'),
+    ('2', '2 aulas'),
+    ('3', '3 aulas'),
+    ('4', '4 aulas'),
+    ('5', '5 aulas'),
+    ('6', '6 aulas'),
 )
 
 # -*- coding: utf-8 -*-
@@ -53,8 +52,8 @@ class Professor(models.Model):
     id = models.AutoField(primary_key=True, db_column='id')
     nome = models.CharField(max_length=70)
     codigo = models.CharField(max_length=12)
-    restricao_dia_semana =  models.CharField(max_length=1, choices=RESTRICAO_DIA_CHOICES)
-    restricao_horario =  models.TextField(max_length=1, choices=RESTRICAO_HORA_CHOICES)
+    restricao_dia_semana =  models.CharField(max_length=5, choices=RESTRICAO_DIA_CHOICES)
+    restricao_horario =  models.TextField(max_length=8, choices=RESTRICAO_HORA_CHOICES)
 
     def __str__(self):
             return str(self.nome)
@@ -68,6 +67,9 @@ class Disciplina(models.Model):
 
     def __str__(self):
          return str(self.nome)
+
+    def __unicode__(self):
+        return u'{f}'.format(f=self.nome)
 
 # -*- coding: utf-8 -*-
 class Disciplina_ministrada(models.Model):

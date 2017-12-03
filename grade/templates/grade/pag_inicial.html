@@ -1,19 +1,35 @@
 {% extends 'grade/base.html' %}
 
 {% block content %}
-  <div  class="container" >
+  <div  class="container" align="center">
     <div class="row">
-    <div class="col-md-12" class="col-sm-12">
-    <H1 align='center' style="margin-top:50px;">InovaHora</H1>
-    <h2 align=center><br>Bem vindo!</h2>
+    <div class="col-md-12" >
+    <H1 align='center' style="margin-top:50px;">Seja Bem vindo ao sistema</H1>
+    <h2 align=center><br>INOVAHORA</h2>
       </br>
-  <div align= center>
-      <a class="btn btn-default" alingn=center href="disciplinas" role="button"><b>DISCIPLINA</b></a>
-      <a class="btn btn-default" href="professores" role="button"><b>PROFESSOR</b></a>
-      <a class="btn btn-default" href="turmas" role="button"><b>TURMA</b></a>
+        </br>
+          </br>
+    </div>
   </div>
+  <div class="row" >
+    <div class="col-md-4">
+      <a class="btn btn-default" alingn=center href="disciplinas" role="button" Style="border-radius: 5px; color: white; background-color: #4682B4; padding: 10px 60px 10px ; font-size: 15px; text-align:center"><b>Passo 1</b></a>
+      </br>
+      <b style = "font-size: 18px">Cadastrar disciplinas no sistema</b>
 
+      </div>
+    <div class="col-md-4">
+      <a class="btn btn-default" href="professores" role="button" Style="border-radius: 5px; color: white; background-color: #4682B4; padding: 10px 60px 10px ; font-size: 15px; text-align:center"><b>Passo 2</b></a>
+      </br>
+      <b style = "font-size: 18px">Cadastrar professores no sistema</b>
 
+  </div>
+      <div class="col-md-4">
+      <a class="btn btn-default" href="turmas" role="button" Style="border-radius: 5px; color: white; background-color: #4682B4; padding: 10px 60px 10px ; font-size: 15px; text-align:center"><b>Passo 3</b></a>
+      </br>
+      <b style = "font-size: 18px">Cadastrar turma no sistema</b>
+  </div>
+  </div>
 
 
 {% endblock content %}
