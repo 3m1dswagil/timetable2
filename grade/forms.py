@@ -4,7 +4,7 @@ from django.forms import ModelForm
 from django.forms.widgets import TextInput
 from .models import Disciplina
 from .models import Disciplina_ministrada, Disciplina_turma
-from .models import Professor
+from .models import Professor, Carga_horaria_disciplina
 from .models import Turma
 from django.forms.widgets import RadioSelect, CheckboxSelectMultiple
 
@@ -20,7 +20,7 @@ CARGA_HORARIA_CHOICES = (
 class Disciplina_form(forms.Form):
     codigo = forms.CharField(label='Código', max_length=20)
     nome = forms.CharField(label='Nome', max_length=100)
-    carga_horaria = forms.ChoiceField(choices=CARGA_HORARIA_CHOICES, widget=forms.RadioSelect())
+    # carga_horaria = forms.ChoiceField(choices=CARGA_HORARIA_CHOICES, widget=forms.RadioSelect())
 
     class Meta:
         widgets = {
@@ -47,11 +47,14 @@ RESTRICAO_HORA_CHOICES = (
     ('6', 'Sexta'),
 
 )
+
+
+
 class Professor_form(forms.Form):
     nome = forms.CharField(label='Nome', max_length=100)
     codigo = forms.CharField(label='Matrícula', max_length=100)
     disciplinas = forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple, queryset=Disciplina.objects.all())
-    restricao_dia_semana = forms.MultipleChoiceField(choices=RESTRICAO_DIA_CHOICES, widget=forms.CheckboxSelectMultiple())
+    restricao_dia_semana = forms.ChoiceField(choices=RESTRICAO_DIA_CHOICES, widget=forms.RadioSelect())
     restricao_horario = forms.MultipleChoiceField(choices=RESTRICAO_HORA_CHOICES, widget=forms.CheckboxSelectMultiple())
 
 class Disciplina_ministrada_form(forms.Form):
@@ -62,7 +65,14 @@ class Turma_form(forms.Form):
     nome = forms.CharField(label='Nome', max_length=100)
     codigo = forms.CharField(label='Código', max_length=100)
     disciplina_ministrada = forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple,queryset=Disciplina_ministrada.objects.all())
+    # carga_horaria_disciplina = forms.ChoiceField(choices=CARGA_HORARIA_CHOICES)
 
-class Disciplina_turma(forms.Form):
-    turma = forms.ModelMultipleChoiceField(queryset=Disciplina_ministrada.objects.all())
+
+class Disciplina_turma_form(forms.Form):
+    turma = forms.ModelMultipleChoiceField(queryset=Turma.objects.all())
     disciplina_ministrada = forms.ModelMultipleChoiceField(queryset=Disciplina_ministrada.objects.all())
+    # carga_horaria = forms.ChoiceField(choices=CARGA_HORARIA_CHOICES)
+
+class Carga_horaria_disciplina_form(forms.Form):
+    disciplina_ministrada = forms.ModelMultipleChoiceField(widget=forms.RadioSelect,queryset=Disciplina_ministrada.objects.all())
+    carga_horaria = forms.ChoiceField(choices=CARGA_HORARIA_CHOICES)

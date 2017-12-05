@@ -41,18 +41,18 @@
                     <th>Disciplina</th>
                     <th>Professor</th>
                  </tr>
-            </thead>{% for dado in data2 %}
+            </thead>{% for obj in dados_turma_list %}
             <tbody>
-              <td>{{ dado.turma.nome }}
-              <td>{{ dado.disciplina_ministrada.disciplina.nome }}
-              <td>{{ dado.disciplina_ministrada.professor.nome }}
+              <td>{{ obj.nome }}
+              <td>{{ obj.disciplina_ministrada.professor.nome }}
+              <td>{{ obj.disciplina_ministrada }}
               <!-- <td>{{ turma.nome }}
               <td>{{ turma.nome }} -->
 
                   </td></td><td>
                     {% endfor %}
                 </tr>
-</div>
+              </div>
             </tbody>
          </table>
 </div>

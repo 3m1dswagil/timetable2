@@ -2,7 +2,6 @@
 from django.db import models
 from django.utils import timezone
 
-
 RESTRICAO_DIA_CHOICES = (
     ('0', 'Nenhuma'),
     ('2', 'Segunda'),
@@ -39,6 +38,10 @@ CARGA_HORARIA_CHOICES = (
     ('6', '6 aulas'),
 )
 
+class Carga_horaria(models.Model):
+    primeira = models.CharField(max_length=20)
+    segunda = models.CharField(max_length=20)
+    terceira = models.CharField(max_length=20, choices=CARGA_HORARIA_CHOICES)
 # -*- coding: utf-8 -*-
 class Escola(models.Model):
     nome = models.CharField(max_length=70)
@@ -63,7 +66,7 @@ class Disciplina(models.Model):
     id = models.AutoField(primary_key=True, db_column='id')
     nome = models.CharField(max_length=50)
     codigo = models.CharField(max_length=50)
-    carga_horaria = models.TextField(max_length=1, choices=CARGA_HORARIA_CHOICES)
+    # carga_horaria = models.TextField(max_length=1, choices=CARGA_HORARIA_CHOICES)
 
     def __str__(self):
          return str(self.nome)
@@ -91,7 +94,10 @@ class Turma(models.Model):
 class Disciplina_turma(models.Model):
     turma = models.ForeignKey('Turma', on_delete=models.CASCADE)
     disciplina_ministrada = models.ForeignKey('Disciplina_ministrada', on_delete=models.CASCADE)
+    # carga_horaria = models.TextField(max_length=1, choices=CARGA_HORARIA_CHOICES)
 
-    # def __str__(self):
-    #      return ('%s - %s' % (self.turma.nome, self.disciplina_ministrada.disciplina.nome))
+class Carga_horaria_disciplina(models.Model):
+    disciplina_turma = models.ForeignKey('Disciplina_ministrada', on_delete=models.CASCADE)
+    carga_horaria = models.TextField(max_length=1, choices=CARGA_HORARIA_CHOICES)
+
 # Create your models here.
