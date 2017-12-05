@@ -37,15 +37,15 @@
                   <tr>
                       <th>Código</th>
                       <th>Disciplina</th>
-                      <th>Carga Horária</th>
+                      <!-- <th>Carga Horária</th> -->
                       <th class="actions">Ações</th>
                    </tr>
               </thead>
-              {% for disc in data %}
+              {% for disc in dados_disciplina_list %}
               <tbody>
                 <td>{{ disc.codigo }}
                 <td>{{ disc.nome }}
-                <td>{{ disc.carga_horaria }} aula(s)/semana
+                <!-- <td>{{ disc.carga_horaria }} aula(s)/semana -->
                         <td class="actions">
                           <a class="btn btn-warning btn-xs" href="novadisciplina">Editar</a>
                           <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>

@@ -14,7 +14,7 @@
   <div class="row">
     <div class="col-md-12" class="col-sm-12">
 
-      <H1 align='center' style="margin-top:50px;">CADASTRO DE TURMA</H1>
+      <H1 align='center' style="margin-top:50px;">TURMA</H1>
 
 
       </br>
@@ -37,22 +37,14 @@
             <thead>
                 <tr>
                     <th>Turma</th>
-                    <!-- <th>Nome Turma</th> -->
-                    <th>Disciplina</th>
-                    <th>Professor</th>
-                 </tr>
-            </thead>{% for obj in dados_turma_list %}
-            <tbody>
-              <td>{{ obj.nome }}
-              <td>{{ obj.disciplina_ministrada.professor.nome }}
-              <td>{{ obj.disciplina_ministrada }}
-              <!-- <td>{{ turma.nome }}
-              <td>{{ turma.nome }} -->
-
-                  </td></td><td>
-                    {% endfor %}
                 </tr>
-              </div>
+            </thead>{% for dado in data3 %}
+            <tbody>
+                    <td>{{ dado.turma.nome }}
+                    </td></td>
+                    {% endfor %}
+              </tr>
+</div>
             </tbody>
          </table>
 </div>

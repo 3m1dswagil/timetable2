@@ -1,0 +1,76 @@
+{% extends 'grade/base.html' %}
+<body>
+  {% block content%}
+    <h1>Nova Turma</h1>
+    <!-- <form method="POST" class="post-form">{% csrf_token %}
+      <form action="" method="post"> -->
+      <div id="list" class="row">
+          <div class="table-responsive col-md-12">
+              <table   class="table table-striped" cellspacing="0" cellpadding="0">
+
+        <thead>
+        <td>
+          <tr> Disciplinas </tr>
+          <tr> Carga Horária </tr>
+        </td>
+        <td>
+        </thead>{% for obj in dados_carga_horaria_list %}
+          <tbody>
+            <td>{{ obj.disciplina_ministrada.disciplina.nome }} </td>
+          </tbody>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+      <!-- </form> -->
+
+  {% endblock %}
+</body>
+
+
+
+
+<!--
+<body>
+
+    <h1>Nova Turma</h1>
+    <!- <form method="POST" class="post-form">{% csrf_token %} -->
+      <!-- <form action="" method="post">
+          {% csrf_token %}
+          {{ form2.as_p }} -->
+          <!-- <input type="submit" class="btn btn-info" value="Salvar Carga Horaria"> -->
+        <!-- <table class="table table-striped" cellspacing="0" cellpadding="0">
+          <thead>
+          <td>
+            <tr> Disciplinas </tr>
+            <tr> Carga Horária </tr>
+          </td>
+
+          <td>
+            <!- for obj in dados_carga_horaria_list %} -->
+            <!-- <tbody>
+            <tr> obj.dis.disciplina.nome </tr> --> -->
+
+              <!-- <tr>
+                <select>
+                {% for carga in dados_enum_carga_horaria %}
+                  <item> carga.primeira </item>
+                  <item> carga.segunda </item>
+                </select>
+              </tr> -->
+              <!-- </tbody>
+              {% endfor %}
+          </td>
+
+          </thead>
+          </table>
+         </form>
+
+
+        <div align='center'>
+          <a class="btn btn-default" href="turma_list" role="button">CANCELAR</a>
+          <button type="submit" href="turma_list" class="btn btn-default">SALVAR</button>
+        </div> -->
+    <!-- </form> -->
+<!--
+</body> -->

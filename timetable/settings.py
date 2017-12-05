@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'grade',
+    'widget_tweaks'#https://github.com/jazzband/django-widget-tweaks
 ]
 
 MIDDLEWARE_CLASSES = [
